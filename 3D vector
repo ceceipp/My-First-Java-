@@ -1,0 +1,84 @@
+import java.awt.*;
+import java.applet.*;
+import javax.swing.*;
+import java.util.*;
+ 
+public class MyFirstJavaDone3D extends JFrame
+{
+		
+		public MyFirstJavaDone3D()
+			{
+				this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+				this.setTitle("MyFirstJava Test");
+				this.setResizable(false);  
+				//this.setSize(320,240);
+				this.setBounds(0,0,820,820);
+				this.setVisible(true); 
+				
+			}
+			
+		public void point(Graphics g,int i , int j,Color c )
+			{	
+				g.setColor(c);
+				g.drawLine(i,j,i,j);
+			}
+		public static void main(String[] args)
+			{	
+				int i,j,k,l;
+				Double x,y,z,xx,yy,zz;
+				Double a[ ][ ] = new Double[3][3];
+				Scanner sc = new Scanner(System.in);
+				MyFirstJavaDone3D kaka = new MyFirstJavaDone3D();
+				Graphics g = kaka.getGraphics();
+				int age = sc.nextInt();   //无法理解不加为什么会达不到效果....
+				
+				//g.clearRect(0,0,800,800);   //清屏
+
+				g.setColor(Color.black);
+				g.drawLine(0,400,800,400);
+				g.drawLine(400,0,400,800);
+				g.drawLine(0,800,800,0);
+			
+				System.out.print("输入向量a (x y z)");
+				x = sc.nextDouble() ; y = sc.nextDouble() ;	//获取向量坐标
+				z = sc.nextDouble() ;
+				g.setColor(Color.red);
+				g.drawLine(0+400,0+400,400 + (int)Math.round(x + y *0.707) ,400 - (int)Math.round(y*0.707 + z) );
+				//画出向量
+				
+				System.out.print("输入矩阵A ");
+				for(i=0;i<3;i++)
+					for(j=0;j<3;j++)
+						{
+							a[i][j] = sc.nextDouble();		//获取变换矩阵
+						}
+				System.out.print("\n\n 矩阵A\n");
+				for(i=0;i<3;i++)
+					{
+						for(j=0;j<3;j++)
+						{
+							System.out.print("  "+a[i][j]);	//显示变换矩阵
+						}
+						System.out.print("\n");
+					}
+				System.out.print("\n 变换后的向量c = 矩阵A * a \n");
+				xx = x*a[0][0]+y*a[0][1]+z*a[0][2]; yy = x*a[1][0]+y*a[1][1]+z*a[1][2];	
+				zz = x*a[2][0]+y*a[2][1]+z*a[2][2]; //向量变换后坐标
+				System.out.print(" "  +xx );
+				System.out.print(" , "  +yy ); 
+				System.out.print(" , "  +zz ); 
+				g.setColor(Color.blue);
+				g.drawLine(0+400,0+400,400 + (int)Math.round(xx + yy*0.707) ,400 - (int)Math.round(yy*0.707+zz) ); 
+				//画出变换后坐标
+				System.out.print("输入1以便放大坐标系\n"  ); 
+				
+				if(sc.nextInt()==1)
+					{
+						g.setColor(Color.red);
+						g.drawLine(0+400,0+400,400 + (int)Math.round(x + y*0.707 )*40 ,400 - (int)Math.round(y*0.70+z)*40 );
+						g.setColor(Color.orange);
+						g.drawLine(0+400,0+400,400 + (int)Math.round(xx + yy * 0.707 )*40 ,400 - (int)Math.round(yy * 0.707 +zz )*40 );
+						//坐标放大40倍
+					}
+			}
+}
