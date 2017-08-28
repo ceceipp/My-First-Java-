@@ -78,7 +78,7 @@ public class MyFirstJavaDone3D extends JFrame
 						g.drawLine(0+400,0+400,400 + (int)Math.round(x + y*0.707 )*40 ,400 - (int)Math.round(y*0.70+z)*40 );
 						g.setColor(Color.orange);
 						g.drawLine(0+400,0+400,400 + (int)Math.round(xx + yy * 0.707 )*40 ,400 - (int)Math.round(yy * 0.707 +zz )*40 );
-						//坐标放大40倍
+						//坐标放大40倍   0.707是更好二的一半,改变这个数字能够改变y坐标轴的倾斜度.
 					}
 			}
 }
