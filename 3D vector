@@ -26,6 +26,7 @@ public class MyFirstJavaDone3D extends JFrame
 		g.drawLine(0,800,800,0);
                 g.drawString("0", 380,430);
                 g.drawString("x", 780,380);
+                g.drawString("z", 820,40);
                 g.drawString("y", 430,40);
                 if( flag1 == true )
                 {
@@ -61,7 +62,7 @@ public class MyFirstJavaDone3D extends JFrame
                 kaka.paint(g); 
                 kaka.repaint();
 		//g.clearRect(0,0,900,900);   //清屏
-		System.out.print("输入向量a (x y z)");
+		System.out.print("输入向量a (x y z)  (绿色的向量)");
 		kaka.x = sc.nextDouble() ; 
                 kaka.y = sc.nextDouble() ;	//获取向量坐标
 		kaka.z = sc.nextDouble() ;
@@ -84,7 +85,7 @@ public class MyFirstJavaDone3D extends JFrame
 						}
 						System.out.print("\n");
 					}
-				System.out.print("\n 变换后的向量c = 矩阵A * a \n");
+				System.out.print("\n 变换后的向量c = 矩阵A * a   (红色的向量)\n");
 				kaka.xx = kaka.x*a[0][0]+kaka.y*a[0][1]+kaka.z*a[0][2]; kaka.yy = kaka.x*a[1][0]+kaka.y*a[1][1]+kaka.z*a[1][2];	
 				kaka.zz = kaka.x*a[2][0]+kaka.y*a[2][1]+kaka.z*a[2][2]; //向量变换后坐标
 				System.out.print(" "  +kaka.xx );
