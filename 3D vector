@@ -19,7 +19,8 @@ public class MyFirstJavaDone3D extends JFrame
         int ample = 0 ;
         boolean flag1 ,flag2 = false;
 	public void paint(Graphics g)
-            {
+            {   
+                super.paint(g);
                 g.setColor(Color.black);
 		g.drawLine(0,400,800,400);
 		g.drawLine(400,0,400,800);
