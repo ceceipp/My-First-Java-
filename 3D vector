@@ -17,7 +17,7 @@ public class MyFirstJavaDone3D extends JFrame
 	}
 	double x,y,z,xx,yy,zz = 0;
         int ample = 0 ;
-        boolean flag1 ,flag2 = false;
+        boolean flag1 ,flag2, flag3, flag4  = false;
 	public void paint(Graphics g)
             {   
                 super.paint(g);
@@ -37,6 +37,24 @@ public class MyFirstJavaDone3D extends JFrame
                     g.drawLine(0+400,0+400,400 + (int)Math.round(xx + yy*0.707) ,400 - (int)Math.round(yy*0.707+zz) ); 
                     flag1 = false ;
                 }
+                if( flag3 == true)
+                    {
+                        g.setColor(Color.red);
+                        g.drawString("( "+xx , 400 + (int)Math.round(xx + yy*0.707) + 10 ,400 - (int)Math.round(yy*0.707+zz) + 10);
+                        g.drawString(" , "+yy , 400 + (int)Math.round(xx + yy*0.707) + 50 ,400 - (int)Math.round(yy*0.707+zz) + 10);
+                        g.drawString(" , "+zz , 400 + (int)Math.round(xx + yy*0.707) + 90 ,400 - (int)Math.round(yy*0.707+zz) + 10);
+                        g.drawString(" ) " , 400 + (int)Math.round(xx + yy*0.707) + 130 ,400 - (int)Math.round(yy*0.707+zz) + 10);
+                        flag3 = false ;
+                    }
+                if( flag4 == true )
+                    {
+                        g.setColor(Color.red);
+                        g.drawString("( "+xx , 400 + (int)Math.round(xx + yy*0.707)*ample + 10 ,400 - (int)Math.round(yy*0.707+zz)*ample + 10);
+                        g.drawString(" , "+yy , 400 + (int)Math.round(xx + yy*0.707)*ample + 50 ,400 - (int)Math.round(yy*0.707+zz)*ample + 10);
+                        g.drawString(" , "+zz , 400 + (int)Math.round(xx + yy*0.707)*ample + 90 ,400 - (int)Math.round(yy*0.707+zz)*ample + 10);
+                        g.drawString(" ) " , 400 + (int)Math.round(xx + yy*0.707)*ample + 130 ,400 - (int)Math.round(yy*0.707+zz)*ample + 10);
+                        flag4 = false ;
+                    }
                 if( flag2 == true )
                 {
                     g.setColor(Color.green);
@@ -44,6 +62,7 @@ public class MyFirstJavaDone3D extends JFrame
                     g.setColor(Color.red);
                     g.drawLine(0+400,0+400,400 + (int)Math.round(xx + yy * 0.707 )*ample ,400 - (int)Math.round(yy * 0.707 +zz )*ample );
                     flag2 = false ;
+                    
                 } 
             }
 	
@@ -61,6 +80,7 @@ public class MyFirstJavaDone3D extends JFrame
 		MyFirstJavaDone3D kaka = new MyFirstJavaDone3D();
 		Graphics g = kaka.getGraphics();
                 kaka.paint(g); 
+                kaka.flag1 = kaka.flag2 = false ;
                 kaka.repaint();
 		//g.clearRect(0,0,900,900);   //清屏
 		System.out.print("输入向量a (x y z)  (绿色的向量)");
@@ -92,12 +112,12 @@ public class MyFirstJavaDone3D extends JFrame
 				System.out.print(" "  +kaka.xx );
 				System.out.print(" , "  +kaka.yy ); 
 				System.out.print(" , "  +kaka.zz ); 
-				kaka.flag1 = true ;
+				kaka.flag1 = kaka.flag3 = true ;
                                 kaka.repaint();//画出变换后坐标
 				System.out.print("\n输入放大倍数增加向量观察效果\n"  ); 
 
                                 kaka.ample = sc.nextInt();
-				kaka.flag2 = true ;
+				kaka.flag2 = kaka.flag4 = true ;
                                 kaka.repaint();
 			}
 }
